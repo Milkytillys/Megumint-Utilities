@@ -57,7 +57,7 @@ end)
 task.wait(.5)
 LoopController:Destroy() --[[
     Permanent Disable this loop
-    That mean all threads that connected to the loop will be dead forever    
+    That implies that every thread attached to the loop will eventually die.
 ]]
 ```
 
