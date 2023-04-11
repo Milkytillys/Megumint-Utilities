@@ -19,7 +19,6 @@ end
 
 function LoopController:newThread(...)
 	self.Threads[#self.Threads + 1] = ThreadController.new(...)
-	self.Parent = self
 	return self.Threads[#self.Threads]
 end
 
@@ -37,6 +36,7 @@ function ThreadController.new(rate,func,repeatTimes)
 	self.Rate = rate
 	self.finished = 0
 	self.MainFunction = func
+    self.repeatTimes = repeatTimes
 	self.Function = function(thread)
 		self:MainFunction()
 		task.wait(self.Rate)
