@@ -53,6 +53,12 @@ LoopController:newThread(0.1,function(self)
     print("huuu")
     self:Disable() -- Disable and Close this thread from begin looping instantly
 end)
+
+task.wait(.5)
+LoopController:Destroy() --[[
+    Permanent Disable this loop
+    That mean all threads that connected to the loop will be dead forever    
+]]
 ```
 
 ## License
