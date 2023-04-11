@@ -54,7 +54,7 @@ LoopController:newThread(0.1,function(self)
     self:Disable() -- Disable and Close this thread from begin looping instantly
 end)
 
-task.wait(.5)
+wait(.5)
 LoopController:Destroy() --[[
     Permanent Disable this loop
     That implies that every thread attached to the loop will eventually in dead state.
