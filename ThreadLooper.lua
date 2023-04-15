@@ -30,20 +30,21 @@ function LoopController:Destroy(threadController)
 	self.Connection:Disconnect()
 end
 
-function ThreadController.new(rate, func, repeatTimes)
+function ThreadController.new(rate, func, repeatTimes, DisableError)
 	local self = setmetatable({}, ThreadController)
 	self.Rate = rate
 	self.finished = 0
-	self.MainFunction = func
 	self.repeatTimes = repeatTimes
+	self.MainFunction = func
+	self.Disabled = false
 	self.Function = function(thread)
-		self:MainFunction()
-		task.wait(self.Rate)
-		self:Finish()
+    	self.Status = "running"
+    	self:MainFunction()
+    	task.wait(self.Rate)
+    	self:Finish()
 	end
 	self.MainThread = coroutine.create(self.Function)
-	self.Disabled = false
-	return self
+	return task.spawn(self.MainThread) and self
 end
 
 function ThreadController:handle()
@@ -51,26 +52,25 @@ function ThreadController:handle()
 		return
 	end
 	local ThreadState = coroutine.status(self.MainThread)
-	if ThreadState == "running" or (ThreadState == "suspended" and self.finished >= 1) then
+	if self.Status == ThreadState then
 		return
 	end
 	if self.repeatTimes and self.finished >= self.repeatTimes then
 		return self:Disable()
 	end
-	if ThreadState == "dead" then
-		self.MainThread = coroutine.create(self.Function)
+	if self.Status == "finished" or ThreadState == "dead" then
+		self.MainThread = task.spawn(self.Function)
+		return
 	end
-	coroutine.resume(self.MainThread)
 end
 
-function ThreadController:Finish()
+function LoopController.Thread:Finish()
 	self.finished += 1
-    coroutine.close(self.MainThread)
+	self.Status = "finished"
 end
 
 function ThreadController:Disable()
 	self.Disabled = true
-	coroutine.close(self.MainThread)
+	task.spawn(task.cancel,self.MainThread)
 end
-
 return LoopController
