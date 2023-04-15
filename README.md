@@ -22,8 +22,8 @@ Hi, I'm  **ชานม หวาน น้อย** or you can also call me **Me
 ## **Documentation**
 | File | Docs |
 | ------ | ------ |
-[ThreadLooper][TL] | [UTL-Docs.md][RICKROLL] |
-[ThreadLooperPlus+][TL] | [RTL-Docs.md][RICKROLL] |
+[ThreadRepetator][UTR] | [UTL-Docs.md][RICKROLL] |
+[ThreadRepetatorPlus+][RTR] | [RTL-Docs.md][RICKROLL] |
 [Priority][PRI] | [PRI-Docs.md][RICKROLL] |
 [FastNetwork][FN] | [FN-Docs.md][RICKROLL] |
 [ClearSignal][CS] | [CS-Docs.md][RICKROLL] |
