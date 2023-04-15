@@ -11,17 +11,19 @@ Hi, I'm  **ชานม หวาน น้อย** or you can also call me **Me
 ## **Information**
 | Type | File |
 | ------ | ------ |
-| Universal | [ThreadLooper][TL] |
 | Universal | [Priority][PRI] |
-| Roblox | [FastNetwork][FN] |
-| Executor | [ClearSignal][CS] |
-| Executor | [ObjectConverter][OC] |
-| Executor | [HookConnection][HC] |
+| Universal | [ThreadRepetator][UTR] |
+| Roblox    | [ThreadRepetatorPlus+][RTR]
+| Roblox    | [FastNetwork][FN] |
+| Executor  | [ClearSignal][CS] |
+| Executor  | [ObjectConverter][OC] |
+| Executor  | [HookConnection][HC] |
 
 ## **Documentation**
 | File | Docs |
 | ------ | ------ |
-[ThreadLooper][TL] | [TL-Docs.md][RICKROLL] |
+[ThreadLooper][TL] | [UTL-Docs.md][RICKROLL] |
+[ThreadLooperPlus+][TL] | [RTL-Docs.md][RICKROLL] |
 [Priority][PRI] | [PRI-Docs.md][RICKROLL] |
 [FastNetwork][FN] | [FN-Docs.md][RICKROLL] |
 [ClearSignal][CS] | [CS-Docs.md][RICKROLL] |
@@ -70,6 +72,7 @@ MIT
 [CS]: <https://github.com/Poopland/Megumint-Utilities/blob/main/SYN-ClearSignal.lua>
 [OC]: <https://github.com/Poopland/Megumint-Utilities/blob/main/SYN-ObjectConverter.lua>
 [HC]: <https://github.com/Poopland/Megumint-Utilities/blob/main/SYN-hookconnection.lua>
-[TL]: <https://github.com/Poopland/Megumint-Utilities/blob/main/ThreadLooper.lua>
+[RTR]: <https://github.com/Poopland/Megumint-Utilities/blob/main/RBX-Thread%20Repetator.lua>
+[UTR]: <https://github.com/Poopland/Megumint-Utilities/blob/main/ThreadLooper.lua>
 [PRI]: <https://github.com/Poopland/Megumint-Utilities/blob/main/Priority.lua>
 [RICKROLL]: <https://www.youtube.com/watch?v=dQw4w9WgXcQ>
