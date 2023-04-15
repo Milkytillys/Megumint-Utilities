@@ -36,14 +36,12 @@ function ThreadController.new(rate, func, repeatTimes, DisableError)
 	self.finished = 0
 	self.MainFunction = func
 	self.repeatTimes = repeatTimes
-	self.DisableError = DisableError
-	self.resume = (DisableError and coroutine.resume or task.spawn)
 	self.Function = function(thread)
 		self:MainFunction()
 		task.wait(self.Rate)
 		self:Finish()
 	end
-	self.MainThread = coroutine.create(self.Function)
+	self.MainThread = task.spawn(self.Function)
 	self.Disabled = false
 	return self
 end
@@ -53,16 +51,16 @@ function ThreadController:handle()
 		return
 	end
 	local ThreadState = coroutine.status(self.MainThread)
-	if ThreadState == "running" or (ThreadState == "suspended" and self.finished >= 1) then
+	if ThreadState == "running" or ThreadState == "suspended" then
 		return
 	end
 	if self.repeatTimes and self.finished >= self.repeatTimes then
 		return self:Disable()
 	end
 	if ThreadState == "dead" then
-		self.MainThread = coroutine.create(self.Function)
+		self.MainThread = task.spawn(self.Function)
+		return
 	end
-	self.resume(self.MainThread)
 end
 
 function LoopController.Thread:Finish()
