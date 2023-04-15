@@ -30,14 +30,12 @@ function LoopController:Destroy(threadController)
 	self.Connection:Disconnect()
 end
 
-function ThreadController.new(rate, func, repeatTimes, DisableError)
+function ThreadController.new(rate, func, repeatTimes)
 	local self = setmetatable({}, ThreadController)
 	self.Rate = rate
 	self.finished = 0
 	self.MainFunction = func
 	self.repeatTimes = repeatTimes
-	self.DisableError = DisableError
-	self.Resume = (DisableError and coroutine.resume or task.defer)
 	self.Function = function(thread)
 		self:MainFunction()
 		task.wait(self.Rate)
@@ -62,7 +60,7 @@ function ThreadController:handle()
 	if ThreadState == "dead" then
 		self.MainThread = coroutine.create(self.Function)
 	end
-	self.Resume(self.MainThread)
+	coroutine.resume(self.MainThread)
 end
 
 function ThreadController:Finish()
