@@ -30,11 +30,11 @@ Hi, I'm  **ชานม หวาน น้อย** or you can also call me **Me
 [ObjectConverter][OC] | [OC-Docs.md][RICKROLL] |
 [HookConnection][HC] | [HC-Docs.md][RICKROLL] |
 
-#### __Thread Looper Example__
+#### __Thread Repetator Example__
 ```lua
-local ThreadLooper = require("./ThreadLooper.lua")
+local Repetator = require("./ThreadRepetator.lua")
 
-local LoopController = ThreadLooper.new()
+local LoopController = Repetator.new()
 
 -- 5 repetitions
 local First = LoopController:newThread(0.1,function(self)
