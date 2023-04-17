@@ -12,7 +12,7 @@ Hi, I'm  **ชานม หวาน น้อย** or you can also call me **Me
 | Type | File |
 | ------ | ------ |
 | Universal | [Priority][PRI] |
-| Universal | [ThreadRepetator][UTR] |
+| Roblox    | [ThreadRepetator][UTR] |
 | Roblox    | [ThreadRepetatorPlus+][RTR]
 | Roblox    | [FastNetwork][FN] |
 | Executor  | [ClearSignal][CS] |
